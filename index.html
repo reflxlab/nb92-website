@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Niilo Blättler — Unihockey</title>
+<meta name="description" content="Niilo Blättler, Unihockeyspieler bei Zug United U21.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===================== PASSWORT-GATE ===================== -->
+<!-- Einfacher Client-seitiger Schutz. Passwort steht in script.js (PAGE_PASSWORD).
+     Kein Hochsicherheitsschutz, hält aber zufällige Besucher draussen. -->
+<div id="gate">
+  <div class="gate-box">
+    <p class="gate-eyebrow">NB92 · PRIVAT</p>
+    <h1 class="gate-title">Zutritt nur<br>mit Passwort</h1>
+    <form id="gate-form" autocomplete="off">
+      <input type="password" id="gate-input" placeholder="Passwort" autofocus>
+      <button type="submit">Reingehen →</button>
+    </form>
+    <p class="gate-error" id="gate-error">Falsches Passwort. Nochmal versuchen.</p>
+  </div>
+</div>
+
+<!-- ===================== SEITENINHALT ===================== -->
+<div id="site" hidden>
+
+  <!-- Scoreboard-Leiste: läuft oben durch die ganze Seite -->
+  <div class="scoreboard">
+    <span class="sb-item">ZUG UNITED · U21</span>
+    <span class="sb-dot">●</span>
+    <span class="sb-item">NIILO BLÄTTLER</span>
+    <span class="sb-dot">●</span>
+    <span class="sb-item">#__</span>
+    <span class="sb-dot">●</span>
+    <span class="sb-item">POSITION: PLATZHALTER</span>
+    <span class="sb-dot">●</span>
+    <span class="sb-item">SAISON 25/26</span>
+    <span class="sb-dot">●</span>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="hero-photo placeholder-photo" aria-label="Platzhalter für Action-Foto">
+      <span class="ph-label">FOTO: Action-Shot<br>(Hochformat, z. B. im Sprung / Schuss)</span>
+    </div>
+    <div class="hero-content">
+      <p class="eyebrow">Unihockey · Zug United U21</p>
+      <h1 class="hero-name">NIILO<br>BLÄTTLER</h1>
+      <p class="hero-tagline">Platzhalter-Tagline: ein Satz, der deinen Spielstil beschreibt — z. B. „Schnell im Kopf, schneller auf der Platte.“</p>
+      <a href="#kontakt" class="hero-cta">Kontakt aufnehmen ↓</a>
+    </div>
+  </header>
+
+  <!-- ===== ÜBER MICH ===== -->
+  <section class="about" id="about">
+    <div class="about-grid">
+      <h2 class="section-title">Über<br>mich</h2>
+      <div class="about-text">
+        <p>Platzhalter-Text: Hier kommt eine kurze Vorstellung von dir hin — wer du bist, seit wann du Unihockey spielst, was dich an dem Sport reizt und was deine Stärken auf der Platte sind. Zwei bis drei Sätze reichen, die Seite lebt vom Bild, nicht vom Fliesstext.</p>
+        <p>Zweiter Absatz, optional: z. B. Werdegang — bei welchem Verein hast du angefangen, wie bist du zu Zug United gekommen, gibt es Trainer oder Momente, die dich geprägt haben.</p>
+      </div>
+      <div class="about-meta">
+        <div class="meta-row"><span class="meta-label">Verein</span><span class="meta-value">Zug United U21</span></div>
+        <div class="meta-row"><span class="meta-label">Position</span><span class="meta-value">Platzhalter</span></div>
+        <div class="meta-row"><span class="meta-label">Rückennummer</span><span class="meta-value">Platzhalter</span></div>
+        <div class="meta-row"><span class="meta-label">Schiesshand</span><span class="meta-value">Platzhalter</span></div>
+        <div class="meta-row"><span class="meta-label">Aktiv seit</span><span class="meta-value">Platzhalter</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS (Scoreboard-Stil) ===== -->
+  <section class="stats" id="stats">
+    <p class="section-label">STATS — SAISON 25/26</p>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-num">00</span>
+        <span class="stat-label">Tore</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">00</span>
+        <span class="stat-label">Assists</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">00</span>
+        <span class="stat-label">Spiele</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">00:00</span>
+        <span class="stat-label">Ø Einsatzzeit</span>
+      </div>
+    </div>
+    <p class="stats-note">Platzhalter-Werte — einfach in index.html unter "STATS" durch deine echten Zahlen ersetzen.</p>
+  </section>
+
+  <!-- ===== GALERIE ===== -->
+  <section class="gallery" id="gallery">
+    <p class="section-label">GALERIE</p>
+    <div class="gallery-grid">
+      <div class="placeholder-photo gallery-item tall"><span class="ph-label">FOTO 1<br>Wettkampf</span></div>
+      <div class="placeholder-photo gallery-item"><span class="ph-label">FOTO 2<br>Training</span></div>
+      <div class="placeholder-photo gallery-item"><span class="ph-label">FOTO 3<br>Team</span></div>
+      <div class="placeholder-photo gallery-item tall"><span class="ph-label">FOTO 4<br>Porträt</span></div>
+    </div>
+  </section>
+
+  <!-- ===== KONTAKT ===== -->
+  <section class="contact" id="kontakt">
+    <p class="section-label">KONTAKT</p>
+    <h2 class="contact-title">Lust auf<br>Austausch?</h2>
+    <div class="contact-links">
+      <a href="mailto:niilo@blaettler.lu" class="contact-link">
+        <span class="contact-kind">E-Mail</span>
+        <span class="contact-value">niilo@blaettler.lu</span>
+      </a>
+      <a href="https://instagram.com/PLATZHALTER" class="contact-link" target="_blank" rel="noopener">
+        <span class="contact-kind">Instagram</span>
+        <span class="contact-value">@PLATZHALTER</span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>NB92 · Niilo Blättler · Unihockey</p>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
