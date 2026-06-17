@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
@@ -60,7 +61,7 @@
   <!-- ===== HERO ===== -->
   <header class="hero">
     <div class="hero-photo">
-         <img src="images/SelectedPlayerPhoto" alt="Niilo Blättler" style="width:100%;height:100%;object-fit:cover;">
+         <img src="images/SelectedPlayerPhoto.jpg" alt="Niilo Blättler" style="width:100%;height:100%;object-fit:cover;">
     </div>
     <div class="hero-content">
       <p class="eyebrow">Unihockey · Zug United U21</p>
@@ -79,11 +80,11 @@
         <p>Zweiter Absatz, optional: z. B. Werdegang — bei welchem Verein hast du angefangen, wie bist du zu Zug United gekommen, gibt es Trainer oder Momente, die dich geprägt haben.</p>
       </div>
       <div class="about-meta">
-        <div class="meta-row"><span class="meta-label">Verein</span><span class="meta-value">Zug United U21</span></div>
-        <div class="meta-row"><span class="meta-label">Position</span><span class="meta-value">Platzhalter</span></div>
-        <div class="meta-row"><span class="meta-label">Rückennummer</span><span class="meta-value">Platzhalter</span></div>
-        <div class="meta-row"><span class="meta-label">Schiesshand</span><span class="meta-value">Platzhalter</span></div>
-        <div class="meta-row"><span class="meta-label">Aktiv seit</span><span class="meta-value">Platzhalter</span></div>
+        <div class="meta-row"><span class="meta-label">Verein</span><span class="meta-value">Zug United</span></div>
+        <div class="meta-row"><span class="meta-label">Team</span><span class="meta-value">U21</span></div>
+        <div class="meta-row"><span class="meta-label">Position</span><span class="meta-value">Goalie</span></div>
+        <div class="meta-row"><span class="meta-label">Rückennummer</span><span class="meta-value">92</span></div>
+        <div class="meta-row"><span class="meta-label">Unihockeyaner seit</span><span class="meta-value">2016</span></div>
       </div>
     </div>
   </section>
@@ -129,12 +130,12 @@
     <h2 class="contact-title">Lust auf<br>Austausch?</h2>
     <div class="contact-links">
       <a href="mailto:niilo@blaettler.lu" class="contact-link">
-        <span class="contact-kind">E-Mail</span>
+        <span><i data-lucide="mail"></i></span>
         <span class="contact-value">niilo@blaettler.lu</span>
       </a>
-      <a href="https://instagram.com/PLATZHALTER" class="contact-link" target="_blank" rel="noopener">
-        <span class="contact-kind">Instagram</span>
-        <span class="contact-value">@PLATZHALTER</span>
+      <a href="https://instagram.com/niilo_blaettler" class="contact-link" target="_blank" rel="noopener">
+        <span><img src="https://cdn.simpleicons.org/instagram/FFFFFF" width="20" height="20" alt="Instagram"></span>
+        <span class="contact-value">@niilo_blaettler</span>
       </a>
     </div>
   </section>
@@ -146,5 +147,8 @@
 </div>
 
 <script src="script.js"></script>
+<script>
+  lucide.createIcons();
+</script>
 </body>
 </html>
