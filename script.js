@@ -8,7 +8,7 @@
    PASSWORT ÄNDERN: einfach den Wert unten ersetzen.
    ============================================================ */
 
-const PAGE_PASSWORD = "nb92";
+const PAGE_PASSWORD = "save";
 
 // Damit man nicht bei jedem Klick auf der Seite erneut das
 // Passwort eingeben muss, merken wir uns den Zugang nur für
