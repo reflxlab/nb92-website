@@ -411,6 +411,85 @@ a { color: inherit; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ===================== WARUM MICH SPONSOREN ===================== */
+
+.sponsor-why {
+  padding: 88px 64px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.sponsor-why-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.sponsor-why-head {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 32px;
+  align-items: end;
+  margin-bottom: 32px;
+}
+
+.sponsor-why-text {
+  margin: 0;
+  color: var(--ink-muted);
+  line-height: 1.75;
+  font-size: 1rem;
+}
+
+.sponsor-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+
+.sponsor-card {
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 28px 22px;
+}
+
+.sponsor-number {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.sponsor-card h3 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  line-height: 1;
+  margin: 10px 0 12px;
+}
+
+.sponsor-card p {
+  margin: 0;
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 980px) {
+  .sponsor-why-head {
+    grid-template-columns: 1fr;
+  }
+
+  .sponsor-why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .sponsor-why { padding: 56px 20px; }
+  .sponsor-why-grid { grid-template-columns: 1fr; }
+}
+
 /* ===================== TIMELINE ===================== */
 
 .timeline {
@@ -536,7 +615,7 @@ a { color: inherit; }
 }
 
 .partner-card {
-  background: var(--bg);
+  background: linear-gradient(150deg, var(--surface-2), var(--surface) 100%);
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 32px 22px;
