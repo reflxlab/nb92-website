@@ -489,28 +489,28 @@ a { color: inherit; }
   }
 }
 
-/* ===================== SPONSORS ===================== */
+/* ===================== PARTNER / SPONSOREN ===================== */
 
-.sponsors {
+.partner-section {
   padding: 96px 64px;
   background: var(--surface);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
-.sponsor-wrap {
+.partner-wrap {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.sponsor-grid {
+.partner-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
   align-items: stretch;
 }
 
-.sponsor-card {
+.partner-card {
   background: var(--bg);
   border: 1px solid var(--line);
   padding: 32px 22px;
@@ -520,7 +520,7 @@ a { color: inherit; }
   text-align: center;
 }
 
-.sponsor-logo {
+.partner-logo {
   width: 100%;
   max-width: 180px;
   aspect-ratio: 1;
@@ -535,7 +535,7 @@ a { color: inherit; }
   color: var(--ink-muted);
 }
 
-.sponsor-name {
+.partner-name {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   letter-spacing: 0.08em;
@@ -544,13 +544,13 @@ a { color: inherit; }
 }
 
 @media (max-width: 980px) {
-  .sponsor-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .partner-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 700px) {
-  .sponsors { padding: 56px 20px; }
-  .sponsor-grid { grid-template-columns: 1fr; }
-  .sponsor-card { padding: 28px 18px; }
+  .partner-section { padding: 56px 20px; }
+  .partner-grid { grid-template-columns: 1fr; }
+  .partner-card { padding: 28px 18px; }
 }
 
 /* ===================== GALLERY ===================== */
