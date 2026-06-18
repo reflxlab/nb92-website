@@ -74,54 +74,59 @@
         <div class="meta-row"><span class="meta-label">Verein</span><span class="meta-value">Zug United</span></div>
         <div class="meta-row"><span class="meta-label">Team</span><span class="meta-value">U21</span></div>
         <div class="meta-row"><span class="meta-label">Position</span><span class="meta-value">Goalie</span></div>
-        <div class="meta-row"><span class="meta-label">Rückennummer</span><span class="meta-value">92</span></div>
-        <div class="meta-row"><span class="meta-label">Unihockeyaner seit</span><span class="meta-value">2016</span></div>
+        <div class="meta-row"><span class="meta-label">Alter</span><span class="meta-value" id="age-value" data-birthdate="2009-07-29"></span></div>
+        <div class="meta-row"><span class="meta-label">Beruf</span><span class="meta-value">Lernender Elektroniker</span></div>
       </div>
     </div>
   </section>
 
   <!-- ===== STATS (Scoreboard-Stil) ===== -->
   <section class="stats" id="stats">
-    <p class="section-label">STATS — SAISON 25/26</p>
+    <p class="section-label">Meine Stats</p>
     <div class="stats-grid">
       <div class="stat-card">
-        <span class="stat-num">00</span>
-        <span class="stat-label">Tore</span>
+        <span class="stat-num">Dez 2016</span>
+        <span class="stat-label">Unihockeyaner seit</span>
       </div>
       <div class="stat-card">
-        <span class="stat-num">00</span>
-        <span class="stat-label">Assists</span>
+        <span class="stat-num" id="floorball-years" data-start="2016-12-01"></span>
+        <span class="stat-label">Jahre im Unihockey</span>
       </div>
       <div class="stat-card">
-        <span class="stat-num">00</span>
-        <span class="stat-label">Spiele</span>
+        <span class="stat-num">5</span>
+        <span class="stat-label">Vereinsstationen</span>
       </div>
       <div class="stat-card">
-        <span class="stat-num">00:00</span>
-        <span class="stat-label">Ø Einsatzzeit</span>
+        <span class="stat-num">#92</span>
+        <span class="stat-label">Trikotnummer</span>
       </div>
     </div>
-    <p class="stats-note">Platzhalter-Werte — einfach in index.html unter "STATS" durch deine echten Zahlen ersetzen.</p>
   </section>
 
   <!-- ===== STATIONEN ===== -->
   <section class="timeline" id="timeline">
     <p class="section-label">STATIONEN</p>
     <div class="timeline-wrap">
-      <div class="timeline-item">
-        <div class="timeline-date">2016–2020</div>
+      <div class="timeline-item timeline-item--left">
+        <div class="timeline-card">
+          <div class="timeline-date">2016–2020</div>
+          <div class="timeline-place">Ballwil</div>
+        </div>
         <div class="timeline-marker"></div>
-        <div class="timeline-place">Ballwil</div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-date">2018–2025</div>
+      <div class="timeline-item timeline-item--right">
         <div class="timeline-marker"></div>
-        <div class="timeline-place">Eschenbach</div>
+        <div class="timeline-card">
+          <div class="timeline-date">2019–2025</div>
+          <div class="timeline-place">Eschenbach</div>
+        </div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-date">2025–2026</div>
+      <div class="timeline-item timeline-item--left">
+        <div class="timeline-card">
+          <div class="timeline-date">2024–2026</div>
+          <div class="timeline-place">Zug</div>
+        </div>
         <div class="timeline-marker"></div>
-        <div class="timeline-place">Zug</div>
       </div>
     </div>
   </section>
@@ -246,6 +251,40 @@
       }, 200);
     });
   })();
+</script>
+<script>
+  (function () {
+    var el = document.getElementById('age-value');
+    if (!el || !el.dataset.birthdate) return;
+    var birth = new Date(el.dataset.birthdate);
+    var today = new Date();
+    var age = today.getFullYear() - birth.getFullYear();
+    var hadBirthdayThisYear =
+      today.getMonth() > birth.getMonth() ||
+      (today.getMonth() === birth.getMonth() && today.getDate() >= birth.getDate());
+    if (!hadBirthdayThisYear) age--;
+    el.textContent = age;
+  })();
+</script>
+<script>
+(function () {
+  var el = document.getElementById('floorball-years');
+  if (!el || !el.dataset.start) return;
+
+  var start = new Date(el.dataset.start);
+  var today = new Date();
+
+  var years = today.getFullYear() - start.getFullYear();
+
+  var anniversaryPassed =
+    today.getMonth() > start.getMonth() ||
+    (today.getMonth() === start.getMonth() &&
+     today.getDate() >= start.getDate());
+
+  if (!anniversaryPassed) years--;
+
+  el.textContent = years;
+})();
 </script>
 </body>
 </html>
