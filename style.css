@@ -16,6 +16,10 @@
   --ink: #f4f1ea;
   --ink-muted: #8a93a0;
   --line: rgba(244, 241, 234, 0.12);
+  --timeline-line: #000000;
+  --timeline-card: #4682B4;
+  --timeline-card-deep: #2f5f83;
+  --timeline-node-fill: #f1f1ee;
 
   --font-display: "Big Shoulders Display", sans-serif;
   --font-body: "Space Grotesk", sans-serif;
@@ -606,102 +610,113 @@ a { color: inherit; }
   max-width: 980px;
   margin: 0 auto;
   position: relative;
-  padding: 12px 0;
+  padding: 0;
 }
 
-.timeline-wrap::before {
+.timeline-scene {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  margin: 0 auto;
+}
+
+.timeline-scene::before {
   content: "";
   position: absolute;
   left: 50%;
   top: 0;
   bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, rgba(255, 90, 31, 0.0), rgba(255, 90, 31, 0.8), rgba(255, 90, 31, 0.0));
+  width: 0;
+  background: transparent;
   transform: translateX(-50%);
+  box-shadow: none;
 }
 
 .timeline-item {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr);
-  align-items: start;
-  gap: 18px;
-  padding: 18px 0;
-}
-
-.timeline-card {
-  position: relative;
-  max-width: 320px;
-  width: fit-content;
-  background: linear-gradient(180deg, rgba(18, 24, 31, 0.95), rgba(18, 24, 31, 0.82));
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 16px 18px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  position: absolute;
+  left: 0;
+  width: 100%;
 }
 
 .timeline-item--left .timeline-card {
-  grid-column: 1;
-  justify-self: end;
-  text-align: right;
+  right: calc(50% + 26px + var(--timeline-overlap-shift, 0px));
 }
 
 .timeline-item--right .timeline-card {
-  grid-column: 3;
-  justify-self: start;
-  text-align: left;
+  left: calc(50% + 26px + var(--timeline-overlap-shift, 0px));
 }
 
-.timeline-date,
+.timeline-card {
+  position: absolute;
+  top: 0;
+  width: var(--timeline-card-width, clamp(210px, 27vw, 300px));
+  height: 100%;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03)),
+    linear-gradient(180deg, var(--timeline-card), var(--timeline-card-deep));
+  border: 1px solid rgba(0,0,0,0.38);
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  color: #f5fbff;
+  box-shadow: 0 14px 28px rgba(3,6,12,0.55);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.timeline-year,
 .timeline-place {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.timeline-date {
-  color: var(--ink-muted);
-  margin-bottom: 6px;
+.timeline-year {
+  color: rgba(245, 251, 255, 0.9);
 }
 
-.timeline-marker {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--accent);
-  border: 3px solid var(--surface);
-  box-shadow: 0 0 0 2px var(--accent);
-  justify-self: center;
-  position: relative;
-  z-index: 1;
-  grid-column: 2;
+.timeline-team {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin: auto 0;
 }
 
 .timeline-place {
-  color: var(--ink);
-  font-size: 1rem;
+  color: rgba(245, 251, 255, 0.88);
+  font-size: 0.9rem;
 }
 
 @media (max-width: 700px) {
   .timeline { padding: 56px 20px; }
-  .timeline-wrap::before { left: 12px; }
+  .timeline-scene { min-height: 620px; }
+  .timeline-scene::before { left: 28px; }
   .timeline-item {
-    grid-template-columns: 24px 1fr;
-    gap: 14px;
+    left: 0;
+    width: 100%;
   }
   .timeline-item--left .timeline-card,
   .timeline-item--right .timeline-card {
-    grid-column: 2;
-    justify-self: start;
-    text-align: left;
-    width: 100%;
-    max-width: none;
+    left: 58px;
+    right: auto;
+    width: calc(100% - 74px);
   }
-  .timeline-marker {
-    grid-column: 1;
-    justify-self: start;
+  .timeline-node {
+    left: 28px;
   }
+}
+
+/* Hover / focus polish to match site interactions */
+.timeline-card:hover,
+.timeline-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 36px rgba(3,6,12,0.66);
 }
 
 /* ===================== PARTNER / SPONSOREN ===================== */
