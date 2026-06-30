@@ -877,18 +877,187 @@ a { color: inherit; }
   margin: 0 auto;
 }
 
+/* Mobile-Basis: einfache, garantiert lückenlose einspaltige Liste.
+   Spans/Formen werden erst ab grösseren Breakpoints aktiviert. */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 220px;
-  gap: 16px;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 230px;
+  gap: 18px;
 }
 
-.gallery-item.tall { grid-row: span 2; }
+/* Tablet: zwei gleich grosse Spalten, weiterhin alles 1x1 —
+   so kann nie eine Lücke oder Einzelkachel entstehen. */
+@media (min-width: 561px) and (max-width: 900px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 220px; }
+}
+
+/* Desktop: festes Layout, das die Fläche exakt ausfüllt (4 Spalten x 3
+   Zeilen = 12 Zellen, 7 Fotos in unterschiedlichen Formen). Da die Fläche
+   per Hand zugewiesen ist statt automatisch berechnet, kann keine
+   verwaiste Kachel mehr übrig bleiben. */
+@media (min-width: 901px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 260px);
+    grid-template-areas:
+      "hero hero s1   s2"
+      "hero hero tall s3"
+      "wide wide tall s4";
+    gap: 18px;
+  }
+  .gallery-item--hero { grid-area: hero; }
+  .gallery-item--s1   { grid-area: s1; }
+  .gallery-item--s2   { grid-area: s2; }
+  .gallery-item--tall { grid-area: tall; }
+  .gallery-item--s3   { grid-area: s3; }
+  .gallery-item--wide { grid-area: wide; }
+  .gallery-item--s4   { grid-area: s4; }
+}
+
+/* Basis-Kachel */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Nummer-Badge oben links, dezent wie Sponsoren-Karten-Nummern.
+   Immer sichtbar, schiebt sich beim Hover wie die Ecken-Klammern
+   ein kleines Stück nach innen und wechselt zu Akzent-Orange. */
+.gallery-number {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  z-index: 3;
+  transform: translate(-4px, -4px);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.gallery-item--hero .gallery-number {
+  font-size: 0.9rem;
+}
+
+/* Fokus-Ecken (oben links / unten rechts), wie ein Kamera-Sucher,
+   nur sichtbar bei Hover/Fokus */
+.gallery-item::before,
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--accent);
+  opacity: 0;
+  z-index: 3;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.gallery-item::before {
+  top: 12px;
+  left: 12px;
+  border-right: none;
+  border-bottom: none;
+  transform: translate(-6px, -6px);
+}
+
+.gallery-item::after {
+  bottom: 12px;
+  right: 12px;
+  border-left: none;
+  border-top: none;
+  transform: translate(6px, 6px);
+}
+
+/* Dunkler Verlauf, der beim Hover von unten einblendet, damit
+   die Caption darauf lesbar ist */
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11, 15, 20, 0.92) 0%, rgba(11, 15, 20, 0.15) 55%, transparent 80%);
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.gallery-item .ph-label {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  z-index: 3;
+  text-align: left;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.gallery-item:hover,
+.gallery-item:focus-within {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-item:hover .gallery-number,
+.gallery-item:focus-within .gallery-number {
+  transform: translate(0, 0);
+  color: var(--accent);
+}
+
+.gallery-item:hover::before,
+.gallery-item:hover::after,
+.gallery-item:focus-within::before,
+.gallery-item:focus-within::after {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.gallery-item:hover .gallery-overlay,
+.gallery-item:focus-within .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-item:hover .ph-label,
+.gallery-item:focus-within .ph-label {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 @media (max-width: 900px) {
   .gallery { padding: 64px 24px; }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
+}
+
+@media (max-width: 560px) {
+  .gallery { padding: 56px 20px; }
+
+  /* Auf Mobile bleibt die Caption sichtbar, da Hover dort nicht
+     zuverlässig funktioniert (Touch) */
+  .gallery-item .ph-label {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .gallery-item .gallery-overlay { opacity: 1; }
 }
 
 /* ===================== CONTACT ===================== */

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum — Niilo Blättler</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  .legal {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 120px 24px 100px;
+  }
+  .legal-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    color: var(--ink-muted);
+    margin-bottom: 48px;
+    transition: color 0.2s ease;
+  }
+  .legal-back:hover { color: var(--accent); }
+  .legal h1 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+    text-transform: uppercase;
+    line-height: 0.95;
+    margin: 0 0 48px;
+  }
+  .legal h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    margin: 40px 0 12px;
+    color: var(--accent);
+  }
+  .legal p {
+    line-height: 1.75;
+    color: var(--ink-muted);
+    margin: 0 0 8px;
+  }
+  .legal address {
+    font-style: normal;
+    line-height: 1.75;
+    color: var(--ink);
+  }
+  .legal a.inline-link {
+    color: var(--ink);
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+  }
+  .legal a.inline-link:hover { border-color: var(--accent); }
+</style>
+</head>
+<body>
+
+
+<main class="legal">
+  <a href="index.html" class="legal-back"><i data-lucide="arrow-left"></i> Zurück zur Startseite</a>
+
+  <h1>Impressum</h1>
+  <address>
+    Niilo Blättler<br>
+    Platzhalter 29<br>
+    0293 Irgendwo<br>
+    Schweiz
+  </address>
+  <p style="margin-top:14px;">E-Mail: <a class="inline-link" href="mailto:niilo@blaettler.lu">niilo@blaettler.lu</a></p>
+
+  <h2>Verantwortlich für den Inhalt</h2>
+  <p>Niilo Blättler (Adresse wie oben).</p>
+
+  <h2>Haftungsausschluss</h2>
+  <p>Diese Website dient der persönlichen Vorstellung sowie der Information potenzieller Sponsoren und Partner. Für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Inhalte wird keine Gewähr übernommen.</p>
+  <p>Diese Website enthält Links zu externen Websites Dritter (u. a. Zug United, Sponsoren), auf deren Inhalte kein Einfluss besteht. Für diese fremden Inhalte kann daher keine Verantwortung übernommen werden; massgeblich ist stets der jeweilige Anbieter der verlinkten Seite.</p>
+
+  <h2>Urheberrecht</h2>
+  <p>Die auf dieser Website veröffentlichten Inhalte (Texte, Bilder, Logos) unterliegen, sofern nicht anders gekennzeichnet, dem Urheberrecht von Niilo Blättler bzw. der jeweiligen Rechteinhaber (z. B. Sponsorenlogos). Eine Verwendung ohne vorherige Zustimmung ist nicht gestattet.</p>
+</main>
+
+<footer class="footer">
+  <p>NB92 · Niilo Blättler · Unihockey</p>
+</footer>
+
+<script>
+  lucide.createIcons();
+</script>
+</body>
+</html>

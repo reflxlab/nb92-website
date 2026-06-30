@@ -72,7 +72,9 @@ form.addEventListener("submit", (e) => {
     });
   }
 
-  function chooseSide(activeState, fallbackSide) {
+  function chooseSide(activeState, fallbackSide, forceSingleColumn) {
+    if (forceSingleColumn) return "left";
+
     var leftBusy = activeState.left.length;
     var rightBusy = activeState.right.length;
 
@@ -126,7 +128,7 @@ form.addEventListener("submit", (e) => {
       sideState.left = pruneActive(sideState.left, logicalTop);
       sideState.right = pruneActive(sideState.right, logicalTop);
 
-      team.side = chooseSide(sideState, lastSide);
+      team.side = chooseSide(sideState, lastSide, compact);
 
       // 2. KERN-LOGIK: Box nach unten verschieben, falls der Platz belegt ist
       var actualTop = logicalTop;
