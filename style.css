@@ -902,17 +902,16 @@ a { color: inherit; }
     grid-template-rows: repeat(3, 260px);
     grid-template-areas:
       "hero hero s1   s2"
-      "hero hero tall s3"
-      "wide wide tall s4";
+      "hero hero tall s2"
+      "wide wide tall s3";
     gap: 18px;
   }
   .gallery-item--hero { grid-area: hero; }
   .gallery-item--s1   { grid-area: s1; }
   .gallery-item--s2   { grid-area: s2; }
   .gallery-item--tall { grid-area: tall; }
-  .gallery-item--s3   { grid-area: s3; }
   .gallery-item--wide { grid-area: wide; }
-  .gallery-item--s4   { grid-area: s4; }
+  .gallery-item--s3   { grid-area: s3; }
 }
 
 /* Basis-Kachel */
