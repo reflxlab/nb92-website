@@ -1127,3 +1127,30 @@ a { color: inherit; }
   color: var(--ink-muted);
   border-top: 1px solid var(--line);
 }
+
+
+
+/* ===================== Cursor ===================== */
+* {
+  cursor: none; /* nativen Cursor überall ausblenden */
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+}
+
+.cursor-dot.hover {
+  width: 26px;
+  height: 26px;
+  background: var(--accent);
+}

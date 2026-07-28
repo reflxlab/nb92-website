@@ -187,3 +187,34 @@ form.addEventListener("submit", (e) => {
     resizeTimer = window.setTimeout(buildLayout, 150);
   });
 })();
+/* ============================================================
+   Custom Cursor — smoother orangener Punkt
+   ============================================================ */
+(function () {
+  const dot = document.querySelector('.cursor-dot');
+  if (!dot) return; // falls das Element (noch) nicht existiert, abbrechen
+
+  let mouseX = 0, mouseY = 0;
+  let dotX = 0, dotY = 0;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animate() {
+    dotX += (mouseX - dotX) * 0.15;
+    dotY += (mouseY - dotY) * 0.15;
+
+    dot.style.left = dotX + 'px';
+    dot.style.top = dotY + 'px';
+
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => dot.classList.add('hover'));
+    el.addEventListener('mouseleave', () => dot.classList.remove('hover'));
+  });
+})();
