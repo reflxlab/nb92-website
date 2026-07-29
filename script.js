@@ -21,26 +21,31 @@ const form = document.getElementById("gate-form");
 const input = document.getElementById("gate-input");
 const error = document.getElementById("gate-error");
 
-function unlock() {
-  gate.style.display = "none";
-  site.hidden = false;
-  sessionStorage.setItem(SESSION_KEY, "1");
-}
-
-if (sessionStorage.getItem(SESSION_KEY) === "1") {
-  unlock();
-}
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  if (input.value === PAGE_PASSWORD) {
-    unlock();
-  } else {
-    error.classList.add("show");
-    input.value = "";
-    input.focus();
+// Nur ausführen, wenn diese Seite überhaupt ein Passwort-Gate hat
+// (z. B. nicht auf impressum.html). Sonst würde ein Fehler hier
+// den restlichen Code (Timeline, Cursor) blockieren.
+if (gate && site && form && input && error) {
+  function unlock() {
+    gate.style.display = "none";
+    site.hidden = false;
+    sessionStorage.setItem(SESSION_KEY, "1");
   }
-});
+
+  if (sessionStorage.getItem(SESSION_KEY) === "1") {
+    unlock();
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (input.value === PAGE_PASSWORD) {
+      unlock();
+    } else {
+      error.classList.add("show");
+      input.value = "";
+      input.focus();
+    }
+  });
+}
 
 (function () {
   var timelineScene = document.getElementById("timeline-scene");
