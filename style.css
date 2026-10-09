@@ -632,11 +632,32 @@ body:has(.nav-toggle:hover, .nav-toggle:focus-visible) .cursor-dot { opacity: 0;
 
 
 .sponsor-card {
+  position: relative;
   background: linear-gradient(180deg, var(--surface), var(--surface-2));
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 28px 22px;
   transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.sponsor-card[data-already-taken]::after {
+  content: "Already Taken";
+  position: absolute;
+  top: 20px;
+  right: -20px;
+  z-index: 1;
+  width: 144px;
+  padding: 5px 0;
+  border: 1px solid var(--accent);
+  background: var(--surface-2);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  line-height: 1;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  transform: rotate(30deg);
 }
 
 .sponsor-card:hover {
