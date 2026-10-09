@@ -266,6 +266,20 @@ body:has(.nav-toggle:hover, .nav-toggle:focus-visible) .cursor-dot { opacity: 0;
   min-height: calc(100vh - 41px);
 }
 
+.partner-hero {
+  grid-template-columns: 1.1fr 1fr;
+}
+
+.partner-hero .hero-photo {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.partner-hero .hero-content {
+  grid-column: 1;
+  grid-row: 1;
+}
+
 .hero-photo {
   min-height: 360px;
 }
@@ -348,6 +362,8 @@ body:has(.nav-toggle:hover, .nav-toggle:focus-visible) .cursor-dot { opacity: 0;
 
 @media (max-width: 860px) {
   .hero { grid-template-columns: 1fr; min-height: auto; }
+  .partner-hero .hero-photo,
+  .partner-hero .hero-content { grid-column: auto; grid-row: auto; }
   .hero-photo { min-height: 50vh; }
   .hero-content { padding: 40px 28px; }
 }
@@ -491,6 +507,7 @@ body:has(.nav-toggle:hover, .nav-toggle:focus-visible) .cursor-dot { opacity: 0;
 .myValues {
   padding: 88px 64px;
   background: var(--bg);
+  border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
