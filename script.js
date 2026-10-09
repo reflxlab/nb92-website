@@ -1,51 +1,89 @@
-/* ============================================================
-   NB92 — Passwort-Gate
-   Einfacher, client-seitiger Schutz (kein echter Sicherheits-
-   mechanismus — der Quellcode ist im Browser einsehbar, also
-   technisch versierte Personen könnten das umgehen). Reicht aber,
-   um zufällige Besucher und Suchmaschinen draussen zu halten.
+(function () {
+  var masthead = document.querySelector(".site-masthead");
+  var toggle = document.querySelector(".nav-toggle");
+  var linksPanel = document.getElementById("nav-links");
+  if (!masthead || !toggle || !linksPanel) return;
 
-   PASSWORT ÄNDERN: einfach den Wert unten ersetzen.
-   ============================================================ */
-
-const PAGE_PASSWORD = "save";
-
-// Damit man nicht bei jedem Klick auf der Seite erneut das
-// Passwort eingeben muss, merken wir uns den Zugang nur für
-// diesen Browser-Tab (sessionStorage).
-const SESSION_KEY = "nb92_unlocked";
-
-const gate = document.getElementById("gate");
-const site = document.getElementById("site");
-const form = document.getElementById("gate-form");
-const input = document.getElementById("gate-input");
-const error = document.getElementById("gate-error");
-
-// Nur ausführen, wenn diese Seite überhaupt ein Passwort-Gate hat
-// (z. B. nicht auf impressum.html). Sonst würde ein Fehler hier
-// den restlichen Code (Timeline, Cursor) blockieren.
-if (gate && site && form && input && error) {
-  function unlock() {
-    gate.style.display = "none";
-    site.hidden = false;
-    sessionStorage.setItem(SESSION_KEY, "1");
+  function closeMenu() {
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Menü öffnen");
+    linksPanel.classList.remove("is-open");
   }
 
-  if (sessionStorage.getItem(SESSION_KEY) === "1") {
-    unlock();
-  }
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    if (input.value === PAGE_PASSWORD) {
-      unlock();
-    } else {
-      error.classList.add("show");
-      input.value = "";
-      input.focus();
-    }
+  toggle.addEventListener("click", function () {
+    var isOpen = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+    toggle.setAttribute("aria-label", isOpen ? "Menü öffnen" : "Menü schliessen");
+    linksPanel.classList.toggle("is-open", !isOpen);
   });
-}
+
+  linksPanel.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") closeMenu();
+  });
+
+  var sectionLinks = Array.prototype.slice.call(linksPanel.querySelectorAll('a[href^="#"]'));
+  var sections = sectionLinks.map(function (link) {
+    return { link: link, section: document.querySelector(link.getAttribute("href")) };
+  }).filter(function (item) { return item.section; });
+
+  function updateActiveLink() {
+    var threshold = masthead.getBoundingClientRect().height + 12;
+    var active = null;
+    sections.forEach(function (item) {
+      if (item.section.getBoundingClientRect().top <= threshold) active = item.link;
+    });
+    sections.forEach(function (item) {
+      if (item.link === active) item.link.setAttribute("aria-current", "location");
+      else item.link.removeAttribute("aria-current");
+    });
+  }
+
+  window.addEventListener("scroll", updateActiveLink, { passive: true });
+  window.addEventListener("resize", updateActiveLink);
+  updateActiveLink();
+})();
+
+// Scoreboard-Ticker gemeinsam auf der Athleten- und Partner-Seite nutzen.
+(function () {
+  var track = document.getElementById("scoreboard-track");
+  if (!track) return;
+  var baseSet = track.querySelector(".scoreboard-set");
+  if (!baseSet) return;
+
+  function buildTicker() {
+    Array.prototype.slice.call(track.children).forEach(function (child) {
+      if (child !== baseSet) track.removeChild(child);
+    });
+
+    var containerWidth = track.parentElement.clientWidth;
+    var setWidth = baseSet.getBoundingClientRect().width;
+    if (!setWidth || !containerWidth) return false;
+
+    var halfWidth = setWidth;
+    while (halfWidth < containerWidth) {
+      track.appendChild(baseSet.cloneNode(true));
+      halfWidth += setWidth;
+    }
+
+    Array.prototype.slice.call(track.children).forEach(function (node) {
+      track.appendChild(node.cloneNode(true));
+    });
+    return true;
+  }
+
+  var built = buildTicker();
+  var resizeTimer;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      built = buildTicker();
+    }, 200);
+  });
+})();
 
 (function () {
   var timelineScene = document.getElementById("timeline-scene");

@@ -49,105 +49,16 @@ a { color: inherit; }
   outline-offset: 3px;
 }
 
-/* ===================== PASSWORT-GATE ===================== */
-
-#gate {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg);
-  background-image:
-    radial-gradient(circle at 80% 60%, rgba(255, 90, 31, 0.08), transparent 40%),
-    radial-gradient(circle at 20% 20%, rgba(201, 150, 86, 0.06), transparent 40%),
-    linear-gradient(rgba(11, 15, 20, 0.6), rgba(11, 15, 20, 0.8)),
-    url("images/editedGoalFocus.png");
-  background-size: cover;
-  background-position: center;
-  padding: 24px;
-}
-
-.gate-box {
-  max-width: 380px;
-  width: 100%;
-  text-align: center;
-}
-
-.gate-eyebrow {
-  font-family: var(--font-mono);
-  letter-spacing: 0.15em;
-  color: var(--accent);
-  font-size: 0.75rem;
-  margin: 0 0 16px;
-}
-
-.gate-title {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(2.2rem, 8vw, 3rem);
-  line-height: 1.05;
-  margin: 0 0 32px;
-  text-transform: uppercase;
-}
-
-#gate-form {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-#gate-input {
-  flex: 1;
-  min-width: 160px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  color: var(--ink);
-  padding: 14px 16px;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  border-radius: 4px;
-}
-
-#gate-form button {
-  background: var(--accent);
-  color: var(--bg);
-  border: none;
-  width: 52px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: transform 0.15s ease;
-}
-
-#gate-form button:hover { transform: translateY(-1px); background: var(--accent-2); }
-
-.gate-error {
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  margin-top: 16px;
-  display: none;
-}
-
-.gate-error.show { display: block; }
-
 /* ===================== SCOREBOARD-LEISTE ===================== */
+
+.site-masthead {
+  background: var(--bg);
+}
 
 .scoreboard {
   background: var(--surface);
   border-bottom: 1px solid var(--line);
   overflow: hidden;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
 .scoreboard-track {
@@ -183,6 +94,146 @@ a { color: inherit; }
 @keyframes ticker {
   from { transform: translate3d(0, 0, 0); }
   to { transform: translate3d(-50%, 0, 0); }
+}
+
+/* ===================== HAUPTNAVIGATION ===================== */
+
+.primary-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.primary-nav-inner {
+  min-height: 64px;
+  padding: 0 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.nav-brand {
+  flex: 0 0 auto;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 900;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.nav-brand span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(16px, 2.2vw, 32px);
+}
+
+.nav-links a {
+  position: relative;
+  padding: 24px 0 22px;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.18s ease;
+}
+
+.nav-links a::after {
+  position: absolute;
+  right: 0;
+  bottom: 14px;
+  left: 0;
+  height: 1px;
+  background: var(--accent);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.18s ease;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="location"] { color: var(--ink); }
+
+.nav-links a:hover::after,
+.nav-links a[aria-current="location"]::after { transform: scaleX(1); }
+
+.nav-links .nav-partner-link { color: var(--accent); }
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 12px 9px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+}
+
+.nav-toggle-line {
+  display: block;
+  width: 24px;
+  height: 1px;
+  margin: 5px 0;
+  background: currentColor;
+  transition: transform 0.18s ease;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-line:first-child { transform: translateY(3px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle-line:last-child { transform: translateY(-3px) rotate(-45deg); }
+
+body:has(.nav-toggle:hover, .nav-toggle:focus-visible) .cursor-dot { opacity: 0; }
+
+#about, #stats, #myValues, #sponsor-why, #hintergrund, #timeline, #partner, #gallery, #kontakt {
+  scroll-margin-top: 7rem;
+}
+
+@media (max-width: 900px) {
+  .primary-nav-inner { padding: 0 28px; }
+  .nav-links { gap: 14px; }
+  .nav-links a { font-size: 0.62rem; }
+}
+
+@media (max-width: 760px) {
+  .primary-nav-inner {
+    min-height: 60px;
+    padding: 0 20px;
+  }
+
+  .nav-toggle { display: block; }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: none;
+    padding: 8px 20px 16px;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+  }
+
+  .nav-links.is-open {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-content: stretch;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.72rem;
+  }
+
+  .nav-links a:last-child { border-bottom: 0; }
+  .nav-links a::after { bottom: 6px; }
 }
 
 /* ===================== PLATZHALTER-FOTOS ===================== */
@@ -275,6 +326,25 @@ a { color: inherit; }
 }
 
 .hero-cta:hover { opacity: 0.7; }
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+}
+
+.hero-back-link {
+  width: fit-content;
+  margin-top: 8px;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 5px;
+}
+
+.hero-back-link:hover { color: var(--ink); }
 
 @media (max-width: 860px) {
   .hero { grid-template-columns: 1fr; min-height: auto; }
@@ -862,6 +932,7 @@ a { color: inherit; }
 
 .partner-name {
   min-height: 1.2em; /* oder 2.4em bei evtl. zwei Zeilen */
+  color: var(--accent);
 }
 
 @media (max-width: 700px) {
