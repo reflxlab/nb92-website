@@ -115,9 +115,7 @@
     });
   }
 
-  function chooseSide(activeState, fallbackSide, forceSingleColumn) {
-    if (forceSingleColumn) return "left";
-
+  function chooseSide(activeState, fallbackSide) {
     var leftBusy = activeState.left.length;
     var rightBusy = activeState.right.length;
 
@@ -134,7 +132,7 @@
   function buildLayout() {
     var compact = window.matchMedia("(max-width: 700px)").matches;
     var yearStep = compact ? mobileYearStep : desktopYearStep;
-    var cardWidth = compact ? "calc(100% - 84px)" : "clamp(210px, 27vw, 300px)";
+    var cardWidth = compact ? "calc(50% - 18px)" : "clamp(210px, 27vw, 300px)";
     
     var currentYear = new Date().getFullYear();
 
@@ -171,7 +169,7 @@
       sideState.left = pruneActive(sideState.left, logicalTop);
       sideState.right = pruneActive(sideState.right, logicalTop);
 
-      team.side = chooseSide(sideState, lastSide, compact);
+      team.side = chooseSide(sideState, lastSide);
 
       // 2. KERN-LOGIK: Box nach unten verschieben, falls der Platz belegt ist
       var actualTop = logicalTop;
