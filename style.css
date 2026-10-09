@@ -706,9 +706,21 @@ body:has(.nav-toggle:hover, .nav-toggle:focus-visible) .cursor-dot { opacity: 0;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   max-width: 1280px;
-  margin: 40px auto 0;
-  padding: 0 64px;
+  margin: 0 auto;
+  padding: 88px 64px;
   box-sizing: border-box;
+}
+
+#hintergrund { scroll-margin-top: 5rem; }
+
+.info-columns > .section-label {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.info-title {
+  grid-column: 1 / -1;
+  margin: 0;
 }
 
 .info-card {
@@ -745,13 +757,13 @@ body:has(.nav-toggle:hover, .nav-toggle:focus-visible) .cursor-dot { opacity: 0;
 @media (max-width: 900px) {
   .info-columns {
     grid-template-columns: 1fr;
-    padding: 0 28px;
+    padding: 64px 28px;
   }
 }
 
 @media (max-width: 700px) {
   .info-columns {
-    padding: 0 20px;
+    padding: 56px 20px;
   }
 }
 
