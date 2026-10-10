@@ -1,0 +1,265 @@
+{
+  "team": "Zug United",
+  "competition": "Junioren U21 A",
+  "season": "2026/27",
+  "timeZone": "Europe/Zurich",
+  "matches": [
+    {
+      "id": 1097337,
+      "round": 1,
+      "start": "2026-09-12T17:00:00+02:00",
+      "homeTeam": "Zug United",
+      "awayTeam": "Floorball Thurgau",
+      "isHome": true,
+      "venue": "Stadthalle Zug (Herti) Zug",
+      "result": {
+        "home": 4,
+        "away": 5
+      },
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097337"
+    },
+    {
+      "id": 1097344,
+      "round": 2,
+      "start": "2026-09-19T15:00:00+02:00",
+      "homeTeam": "UHC Uster",
+      "awayTeam": "Zug United",
+      "isHome": false,
+      "venue": "Buchholz Uster",
+      "result": {
+        "home": 3,
+        "away": 2
+      },
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097344"
+    },
+    {
+      "id": 1097345,
+      "round": 3,
+      "start": "2026-09-27T20:00:00+02:00",
+      "homeTeam": "SV Wiler-Ersigen",
+      "awayTeam": "Zug United",
+      "isHome": false,
+      "venue": "Sportanlage Grossmatt Kirchberg BE",
+      "result": {
+        "home": 2,
+        "away": 9
+      },
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097345"
+    },
+    {
+      "id": 1097355,
+      "round": 4,
+      "start": "2026-10-03T10:00:00+02:00",
+      "homeTeam": "Tigers Langnau",
+      "awayTeam": "Zug United",
+      "isHome": false,
+      "venue": "Unihoc Arena Biglen",
+      "result": {
+        "home": 3,
+        "away": 13
+      },
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097355"
+    },
+    {
+      "id": 1097359,
+      "round": 5,
+      "start": "2026-10-04T16:00:00+02:00",
+      "homeTeam": "UHC Thun",
+      "awayTeam": "Zug United",
+      "isHome": false,
+      "venue": "MUR Thun",
+      "result": {
+        "home": 8,
+        "away": 6
+      },
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097359"
+    },
+    {
+      "id": 1097366,
+      "round": 6,
+      "start": "2026-10-11T13:00:00+02:00",
+      "homeTeam": "Floorball Chur United",
+      "awayTeam": "Zug United",
+      "isHome": false,
+      "venue": "Sporthalle Fortuna Chur",
+      "result": null,
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097366"
+    },
+    {
+      "id": 1097373,
+      "round": 7,
+      "start": "2026-10-24T17:00:00+02:00",
+      "homeTeam": "Zug United",
+      "awayTeam": "UHC Alligator Malans",
+      "isHome": true,
+      "venue": "Stadthalle Zug (Herti) Zug",
+      "result": null,
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097373"
+    },
+    {
+      "id": 1097379,
+      "round": 8,
+      "start": "2026-10-25T16:00:00+01:00",
+      "homeTeam": "Kloten-Dietlikon Jets",
+      "awayTeam": "Zug United",
+      "isHome": false,
+      "venue": "Stiftung Sporthalle Stighag Kloten",
+      "result": null,
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097379"
+    },
+    {
+      "id": 1097386,
+      "round": 9,
+      "start": "2026-10-31T19:00:00+01:00",
+      "homeTeam": "Grasshopper Club Zürich",
+      "awayTeam": "Zug United",
+      "isHome": false,
+      "venue": "Sporthalle Hardau Zürich",
+      "result": null,
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097386"
+    },
+    {
+      "id": 1097391,
+      "round": 10,
+      "start": "2026-11-07T17:00:00+01:00",
+      "homeTeam": "Zug United",
+      "awayTeam": "HC Rychenberg Winterthur",
+      "isHome": true,
+      "venue": "Stadthalle Zug (Herti) Zug",
+      "result": null,
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097391"
+    },
+    {
+      "id": 1097396,
+      "round": 11,
+      "start": "2026-11-08T16:00:00+01:00",
+      "homeTeam": "Zug United",
+      "awayTeam": "Floorball Chur United",
+      "isHome": true,
+      "venue": "Dreifachsporthalle Kantonsschule Zug Zug",
+      "result": null,
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097396"
+    },
+    {
+      "id": 1097403,
+      "round": 12,
+      "start": "2026-11-21T13:00:00+01:00",
+      "homeTeam": "Floorball Thurgau",
+      "awayTeam": "Zug United",
+      "isHome": false,
+      "venue": "Paul Reinhart Halle Weinfelden",
+      "result": null,
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097403"
+    },
+    {
+      "id": 1097409,
+      "round": 13,
+      "start": "2026-11-28T16:00:00+01:00",
+      "homeTeam": "HC Rychenberg Winterthur",
+      "awayTeam": "Zug United",
+      "isHome": false,
+      "venue": "Oberseen Winterthur",
+      "result": null,
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097409"
+    },
+    {
+      "id": 1097415,
+      "round": 14,
+      "start": "2026-12-19T17:00:00+01:00",
+      "homeTeam": "Zug United",
+      "awayTeam": "Kloten-Dietlikon Jets",
+      "isHome": true,
+      "venue": "Dreifachsporthalle Kantonsschule Zug Zug",
+      "result": null,
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097415"
+    },
+    {
+      "id": 1097422,
+      "round": 15,
+      "start": "2027-01-09T19:00:00+01:00",
+      "homeTeam": "Zug United",
+      "awayTeam": "UHC Uster",
+      "isHome": true,
+      "venue": "Dreifachsporthalle Kantonsschule Zug Zug",
+      "result": null,
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097422"
+    },
+    {
+      "id": 1097424,
+      "round": 16,
+      "start": "2027-01-10T16:00:00+01:00",
+      "homeTeam": "Floorball Köniz Bern",
+      "awayTeam": "Zug United",
+      "isHome": false,
+      "venue": "Lerbermatt Köniz",
+      "result": null,
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097424"
+    },
+    {
+      "id": 1097429,
+      "round": 17,
+      "start": "2027-01-16T13:00:00+01:00",
+      "homeTeam": "Zug United",
+      "awayTeam": "SV Wiler-Ersigen",
+      "isHome": true,
+      "venue": "Stadthalle Zug (Herti) Zug",
+      "result": null,
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097429"
+    },
+    {
+      "id": 1097439,
+      "round": 18,
+      "start": "2027-01-23T13:00:00+01:00",
+      "homeTeam": "Zug United",
+      "awayTeam": "Tigers Langnau",
+      "isHome": true,
+      "venue": "Dreifachsporthalle Kantonsschule Zug Zug",
+      "result": null,
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097439"
+    },
+    {
+      "id": 1097443,
+      "round": 19,
+      "start": "2027-01-24T13:00:00+01:00",
+      "homeTeam": "Zug United",
+      "awayTeam": "UHC Thun",
+      "isHome": true,
+      "venue": "Dreifachsporthalle Kantonsschule Zug Zug",
+      "result": null,
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097443"
+    },
+    {
+      "id": 1097451,
+      "round": 20,
+      "start": "2027-01-30T14:30:00+01:00",
+      "homeTeam": "UHC Alligator Malans",
+      "awayTeam": "Zug United",
+      "isHome": false,
+      "venue": "Sporthalle Lust Maienfeld",
+      "result": null,
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097451"
+    },
+    {
+      "id": 1097458,
+      "round": 21,
+      "start": "2027-02-07T16:00:00+01:00",
+      "homeTeam": "Zug United",
+      "awayTeam": "Grasshopper Club Zürich",
+      "isHome": true,
+      "venue": "Dreifachsporthalle Kantonsschule Zug Zug",
+      "result": null,
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097458"
+    },
+    {
+      "id": 1097460,
+      "round": 22,
+      "start": "2027-02-13T13:30:00+01:00",
+      "homeTeam": "Zug United",
+      "awayTeam": "Floorball Köniz Bern",
+      "isHome": true,
+      "venue": "Dreifachsporthalle Kantonsschule Zug Zug",
+      "result": null,
+      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097460"
+    }
+  ]
+}

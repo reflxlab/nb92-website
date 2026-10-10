@@ -29,7 +29,7 @@
       <span class="sb-dot">●</span>
       <span class="sb-item">UNIHOCKEY GOALIE</span>
       <span class="sb-dot">●</span>
-      <span class="sb-item">SAISON 25/26</span>
+      <span class="sb-item">SAISON 26/27</span>
       <span class="sb-dot">●</span>
     </div>
   </div>
@@ -47,8 +47,9 @@
       <div class="nav-links" id="nav-links">
         <a href="#about">Profil</a>
         <a href="#stats">Stats</a>
-        <a href="#timeline">Stationen</a>
+        <a href="#next-match">Next Match</a>
         <a href="#partner">Sponsoren</a>
+        <a href="#timeline">Stationen</a>
         <a href="#gallery">Galerie</a>
         <a href="#kontakt">Kontakt</a>
         <a class="nav-partner-link" href="partner/">Sponsor werden</a>
@@ -112,11 +113,16 @@
     </div>
   </section>
 
-  <!-- ===== STATIONEN ===== -->
-  <section class="timeline" id="timeline">
-    <p class="section-label">STATIONEN</p>
-    <div class="timeline-wrap">
-      <div class="timeline-scene" id="timeline-scene" aria-label="Vertikale Timeline der Sportteams"></div>
+  <!-- ===== NEXT MATCH ===== -->
+  <section class="next-match" id="next-match" aria-labelledby="next-match-title">
+    <div class="next-match-inner">
+      <div class="next-match-heading">
+        <p class="section-label">UP NEXT</p>
+        <h2 class="section-title" id="next-match-title">Next Match</h2>
+      </div>
+      <div class="next-match-content" id="next-match-content" aria-live="off">
+        <p class="next-match-status">Spielplan wird geladen ...</p>
+      </div>
     </div>
   </section>
 
@@ -141,10 +147,19 @@
     </div>
   </section>
 
+  <!-- ===== STATIONEN ===== -->
+  <section class="timeline" id="timeline">
+    <p class="section-label">STATIONEN</p>
+    <div class="timeline-wrap">
+      <div class="timeline-scene" id="timeline-scene" aria-label="Vertikale Timeline der Sportteams"></div>
+    </div>
+  </section>
+
   <!-- ===== GALERIE ===== -->
   <section class="gallery" id="gallery">
-    <p class="section-label">GALERIE</p>
-    <div class="gallery-grid">
+    <div class="gallery-inner">
+      <p class="section-label">GALERIE</p>
+      <div class="gallery-grid">
       <div class="gallery-item gallery-item--hero"><div class="gallery-overlay"></div>
         <img src="images/Junioren U18A 085.jpg" alt="Niilo Blättler beim Wettkampf">  
         <span class="gallery-number">01</span>
@@ -174,6 +189,7 @@
         <img src="images/Junioren U16A 010.jpg" alt="Niilo Blättler beim Wettkampf">
         <span class="gallery-number">06</span>
         <span class="ph-label">"Tight space. Tighter focus."</span>
+      </div>
       </div>
     </div>
   </section>

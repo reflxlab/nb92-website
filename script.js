@@ -1,8 +1,8 @@
 (function () {
-  var masthead = document.querySelector(".site-masthead");
+  var primaryNav = document.querySelector(".primary-nav");
   var toggle = document.querySelector(".nav-toggle");
   var linksPanel = document.getElementById("nav-links");
-  if (!masthead || !toggle || !linksPanel) return;
+  if (!primaryNav || !toggle || !linksPanel) return;
 
   function closeMenu() {
     toggle.setAttribute("aria-expanded", "false");
@@ -30,16 +30,26 @@
     return { link: link, section: document.querySelector(link.getAttribute("href")) };
   }).filter(function (item) { return item.section; });
 
-  function updateActiveLink() {
-    var threshold = masthead.getBoundingClientRect().height + 12;
-    var active = null;
-    sections.forEach(function (item) {
-      if (item.section.getBoundingClientRect().top <= threshold) active = item.link;
-    });
+  function setActiveLink(active) {
     sections.forEach(function (item) {
       if (item.link === active) item.link.setAttribute("aria-current", "location");
       else item.link.removeAttribute("aria-current");
     });
+  }
+
+  sections.forEach(function (item) {
+    item.link.addEventListener("click", function () {
+      setActiveLink(item.link);
+    });
+  });
+
+  function updateActiveLink() {
+    var threshold = primaryNav.getBoundingClientRect().bottom + 1;
+    var active = null;
+    sections.forEach(function (item) {
+      if (item.section.getBoundingClientRect().top <= threshold) active = item.link;
+    });
+    setActiveLink(active);
   }
 
   window.addEventListener("scroll", updateActiveLink, { passive: true });
@@ -258,4 +268,132 @@
     el.addEventListener('mouseenter', () => dot.classList.add('hover'));
     el.addEventListener('mouseleave', () => dot.classList.remove('hover'));
   });
+})();
+
+(function () {
+  var content = document.getElementById("next-match-content");
+  if (!content) return;
+
+  var timeZone = "Europe/Zurich";
+  var dateFormatter = new Intl.DateTimeFormat("de-CH", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23",
+    timeZone: timeZone
+  });
+  var matches = [];
+  var displayedMatchId = null;
+  var activeMatch = null;
+
+  function makeElement(tagName, className, text) {
+    var element = document.createElement(tagName);
+    element.className = className;
+    if (text) element.textContent = text;
+    return element;
+  }
+
+  function showStatus(message) {
+    content.replaceChildren(makeElement("p", "next-match-status", message));
+    activeMatch = null;
+    displayedMatchId = null;
+  }
+
+  function makeCountdownUnit(label) {
+    var unit = makeElement("div", "next-match-unit");
+    unit.appendChild(makeElement("span", "next-match-value", "00"));
+    unit.appendChild(makeElement("span", "next-match-unit-label", label));
+    return unit;
+  }
+
+  function makeMatchDetail(label, value) {
+    var detail = makeElement("div", "next-match-detail");
+    detail.appendChild(makeElement("span", "next-match-detail-label", label));
+    detail.appendChild(makeElement("span", "next-match-detail-value", value));
+    return detail;
+  }
+
+  function renderMatch(match) {
+    var link = makeElement("a", "next-match-link");
+    link.href = match.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+
+    var main = makeElement("div", "next-match-main");
+    var details = makeElement("div", "next-match-details");
+    var opponent = match.isHome ? match.awayTeam : match.homeTeam;
+    var location = match.isHome ? "Heimspiel" : "Auswärtsspiel";
+    var date = dateFormatter.format(new Date(match.start));
+    var countdown = makeElement("div", "next-match-countdown");
+    link.setAttribute("aria-label", "Spiel gegen " + opponent + ", " + location + " am " + date + ". Spielseite auf swiss unihockey in neuem Tab öffnen");
+
+    main.appendChild(makeElement("span", "next-match-versus", "VS"));
+    main.appendChild(makeElement("h3", "next-match-opponent", opponent));
+
+    ["Tage", "Std.", "Min.", "Sek."].forEach(function (label) {
+      countdown.appendChild(makeCountdownUnit(label));
+    });
+
+    main.appendChild(countdown);
+    details.appendChild(makeMatchDetail("Spiel", location));
+    details.appendChild(makeMatchDetail("Wann", date));
+    details.appendChild(makeMatchDetail("Wo", match.venue));
+    link.appendChild(main);
+    link.appendChild(details);
+    content.replaceChildren(link);
+    activeMatch = match;
+    displayedMatchId = match.id;
+  }
+
+  function updateCountdown() {
+    var now = Date.now();
+    var nextMatch = matches.filter(function (match) {
+      return Date.parse(match.start) > now;
+    }).sort(function (first, second) {
+      return Date.parse(first.start) - Date.parse(second.start);
+    })[0];
+
+    if (!nextMatch) {
+      showStatus("No upcoming matches");
+      return;
+    }
+
+    if (nextMatch.id !== displayedMatchId) renderMatch(nextMatch);
+
+    var remaining = Math.max(0, Date.parse(nextMatch.start) - now);
+    var totalSeconds = Math.floor(remaining / 1000);
+    var values = [
+      Math.floor(totalSeconds / 86400),
+      Math.floor((totalSeconds % 86400) / 3600),
+      Math.floor((totalSeconds % 3600) / 60),
+      totalSeconds % 60
+    ];
+
+    activeMatch && activeMatch.id === nextMatch.id &&
+      content.querySelectorAll(".next-match-value").forEach(function (element, index) {
+        element.textContent = String(values[index]).padStart(2, "0");
+      });
+  }
+
+  fetch("data/nb92-matches-2026-27.json")
+    .then(function (response) {
+      if (!response.ok) throw new Error("Matchdaten konnten nicht geladen werden");
+      return response.json();
+    })
+    .then(function (data) {
+      matches = Array.isArray(data.matches) ? data.matches.filter(function (match) {
+        return match && match.start && match.url && Number.isFinite(Date.parse(match.start));
+      }) : [];
+      updateCountdown();
+      window.setInterval(updateCountdown, 1000);
+      document.addEventListener("visibilitychange", function () {
+        if (!document.hidden) updateCountdown();
+      });
+    })
+    .catch(function () {
+      showStatus("Spielplan derzeit nicht verfügbar");
+    });
 })();
