@@ -966,7 +966,7 @@ body:has(.nav-toggle:hover, .nav-toggle:focus-visible) .cursor-dot { opacity: 0;
   justify-content: center;
   overflow: hidden;
   border-radius: 10px;
-  height: 90px; /* feste Höhe für alle Logos */
+  height: 113px; /* feste Höhe für alle Logos */
   width: 100%;
 }
 
@@ -985,7 +985,7 @@ body:has(.nav-toggle:hover, .nav-toggle:focus-visible) .cursor-dot { opacity: 0;
 
 @media (max-width: 700px) {
   .partner-section { padding: 56px 20px; }
-  .partner-grid { grid-template-columns: 1fr; justify-content: stretch; }
+  .partner-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 260px)); justify-content: center; }
   .partner-card { padding: 28px 18px; }
 }
 /* ===================== GALLERY ===================== */
