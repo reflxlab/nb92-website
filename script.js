@@ -49,6 +49,9 @@
     sections.forEach(function (item) {
       if (item.section.getBoundingClientRect().top <= threshold) active = item.link;
     });
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+      active = sections.length ? sections[sections.length - 1].link : null;
+    }
     setActiveLink(active);
   }
 
@@ -146,12 +149,16 @@
 
     var halfWidth = setWidth;
     while (halfWidth < containerWidth) {
-      track.appendChild(baseSet.cloneNode(true));
+      var clone = baseSet.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      track.appendChild(clone);
       halfWidth += setWidth;
     }
 
     Array.prototype.slice.call(track.children).forEach(function (node) {
-      track.appendChild(node.cloneNode(true));
+      var clone = node.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      track.appendChild(clone);
     });
     return true;
   }
@@ -396,7 +403,7 @@
     })[0];
 
     if (!nextMatch) {
-      showStatus("No upcoming matches");
+      showStatus("Zurzeit stehen keine weiteren Spiele an.");
       return;
     }
 

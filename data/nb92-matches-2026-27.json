@@ -11,12 +11,12 @@
       "homeTeam": "Zug United",
       "awayTeam": "Floorball Thurgau",
       "isHome": true,
-      "venue": "Stadthalle Zug (Herti) Zug",
+      "venue": "Stadthalle Herti, Zug",
       "result": {
         "home": 4,
         "away": 5
       },
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097337"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097337"
     },
     {
       "id": 1097344,
@@ -30,7 +30,7 @@
         "home": 3,
         "away": 2
       },
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097344"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097344"
     },
     {
       "id": 1097345,
@@ -44,7 +44,7 @@
         "home": 2,
         "away": 9
       },
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097345"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097345"
     },
     {
       "id": 1097355,
@@ -58,7 +58,7 @@
         "home": 3,
         "away": 13
       },
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097355"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097355"
     },
     {
       "id": 1097359,
@@ -72,7 +72,7 @@
         "home": 8,
         "away": 6
       },
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097359"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097359"
     },
     {
       "id": 1097366,
@@ -83,7 +83,7 @@
       "isHome": false,
       "venue": "Sporthalle Fortuna Chur",
       "result": null,
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097366"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097366"
     },
     {
       "id": 1097373,
@@ -92,9 +92,9 @@
       "homeTeam": "Zug United",
       "awayTeam": "UHC Alligator Malans",
       "isHome": true,
-      "venue": "Stadthalle Zug (Herti) Zug",
+      "venue": "Stadthalle Herti, Zug",
       "result": null,
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097373"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097373"
     },
     {
       "id": 1097379,
@@ -105,7 +105,7 @@
       "isHome": false,
       "venue": "Stiftung Sporthalle Stighag Kloten",
       "result": null,
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097379"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097379"
     },
     {
       "id": 1097386,
@@ -116,7 +116,7 @@
       "isHome": false,
       "venue": "Sporthalle Hardau Zürich",
       "result": null,
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097386"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097386"
     },
     {
       "id": 1097391,
@@ -125,9 +125,9 @@
       "homeTeam": "Zug United",
       "awayTeam": "HC Rychenberg Winterthur",
       "isHome": true,
-      "venue": "Stadthalle Zug (Herti) Zug",
+      "venue": "Stadthalle Herti, Zug",
       "result": null,
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097391"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097391"
     },
     {
       "id": 1097396,
@@ -136,9 +136,9 @@
       "homeTeam": "Zug United",
       "awayTeam": "Floorball Chur United",
       "isHome": true,
-      "venue": "Dreifachsporthalle Kantonsschule Zug Zug",
+      "venue": "Dreifachsporthalle Kantonsschule Zug",
       "result": null,
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097396"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097396"
     },
     {
       "id": 1097403,
@@ -149,7 +149,7 @@
       "isHome": false,
       "venue": "Paul Reinhart Halle Weinfelden",
       "result": null,
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097403"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097403"
     },
     {
       "id": 1097409,
@@ -160,7 +160,7 @@
       "isHome": false,
       "venue": "Oberseen Winterthur",
       "result": null,
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097409"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097409"
     },
     {
       "id": 1097415,
@@ -169,9 +169,9 @@
       "homeTeam": "Zug United",
       "awayTeam": "Kloten-Dietlikon Jets",
       "isHome": true,
-      "venue": "Dreifachsporthalle Kantonsschule Zug Zug",
+      "venue": "Dreifachsporthalle Kantonsschule Zug",
       "result": null,
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097415"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097415"
     },
     {
       "id": 1097422,
@@ -180,9 +180,9 @@
       "homeTeam": "Zug United",
       "awayTeam": "UHC Uster",
       "isHome": true,
-      "venue": "Dreifachsporthalle Kantonsschule Zug Zug",
+      "venue": "Dreifachsporthalle Kantonsschule Zug",
       "result": null,
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097422"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097422"
     },
     {
       "id": 1097424,
@@ -193,7 +193,7 @@
       "isHome": false,
       "venue": "Lerbermatt Köniz",
       "result": null,
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097424"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097424"
     },
     {
       "id": 1097429,
@@ -202,9 +202,9 @@
       "homeTeam": "Zug United",
       "awayTeam": "SV Wiler-Ersigen",
       "isHome": true,
-      "venue": "Stadthalle Zug (Herti) Zug",
+      "venue": "Stadthalle Herti, Zug",
       "result": null,
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097429"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097429"
     },
     {
       "id": 1097439,
@@ -213,9 +213,9 @@
       "homeTeam": "Zug United",
       "awayTeam": "Tigers Langnau",
       "isHome": true,
-      "venue": "Dreifachsporthalle Kantonsschule Zug Zug",
+      "venue": "Dreifachsporthalle Kantonsschule Zug",
       "result": null,
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097439"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097439"
     },
     {
       "id": 1097443,
@@ -224,9 +224,9 @@
       "homeTeam": "Zug United",
       "awayTeam": "UHC Thun",
       "isHome": true,
-      "venue": "Dreifachsporthalle Kantonsschule Zug Zug",
+      "venue": "Dreifachsporthalle Kantonsschule Zug",
       "result": null,
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097443"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097443"
     },
     {
       "id": 1097451,
@@ -237,7 +237,7 @@
       "isHome": false,
       "venue": "Sporthalle Lust Maienfeld",
       "result": null,
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097451"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097451"
     },
     {
       "id": 1097458,
@@ -246,9 +246,9 @@
       "homeTeam": "Zug United",
       "awayTeam": "Grasshopper Club Zürich",
       "isHome": true,
-      "venue": "Dreifachsporthalle Kantonsschule Zug Zug",
+      "venue": "Dreifachsporthalle Kantonsschule Zug",
       "result": null,
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097458"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097458"
     },
     {
       "id": 1097460,
@@ -257,9 +257,9 @@
       "homeTeam": "Zug United",
       "awayTeam": "Floorball Köniz Bern",
       "isHome": true,
-      "venue": "Dreifachsporthalle Kantonsschule Zug Zug",
+      "venue": "Dreifachsporthalle Kantonsschule Zug",
       "result": null,
-      "url": "http://www.swissunihockey.ch/de/game-detail?game_id=1097460"
+      "url": "https://www.swissunihockey.ch/de/game-detail?game_id=1097460"
     }
   ]
 }
