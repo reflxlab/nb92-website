@@ -57,6 +57,77 @@
   updateActiveLink();
 })();
 
+// Scroll reveals animate on downward entry and reset only after passing below on upward scroll.
+(function () {
+  if (!("IntersectionObserver" in window) ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  var revealGroups = [
+    ".hero-photo, .hero-content > *",
+    ".about-grid > .section-title, .about-grid > .about-text, .about-meta .meta-row",
+    ".stats > .section-label, .stat-card > *",
+    ".next-match-heading, .next-match-content",
+    ".partner-wrap > .section-label, .partner-card",
+    ".timeline > .section-label, .timeline-item",
+    ".gallery-inner > .section-label, .gallery-item",
+    ".contact > *",
+    ".myValues-wrap > .section-label, .myValues-head > *, .myValues-card",
+    ".sponsor-why-wrap > .section-label, .sponsor-why-head > *, .sponsor-card, .sponsor-note",
+    ".info-columns > *",
+    ".legal > *"
+  ];
+  var lastScrollY = window.scrollY;
+  var scrollDirection = 0;
+
+  window.addEventListener("scroll", function () {
+    var currentScrollY = window.scrollY;
+    if (currentScrollY !== lastScrollY) {
+      scrollDirection = currentScrollY > lastScrollY ? 1 : -1;
+      lastScrollY = currentScrollY;
+    }
+  }, { passive: true });
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        if (scrollDirection >= 0) entry.target.classList.add("is-revealed");
+      } else if (scrollDirection < 0 &&
+          entry.boundingClientRect.top >= window.innerHeight) {
+        entry.target.classList.remove("is-revealed");
+      }
+    });
+  }, {
+    threshold: 0,
+    rootMargin: "0px 0px 100px 0px"
+  });
+
+  document.body.classList.add("scroll-reveal-enabled");
+
+  function observeTarget(target, index) {
+    if (target.hasAttribute("data-scroll-reveal")) return;
+    target.setAttribute("data-scroll-reveal", "");
+    target.style.setProperty("--reveal-delay", Math.min(index, 8) * 75 + "ms");
+    observer.observe(target);
+  }
+
+  revealGroups.forEach(function (group) {
+    document.querySelectorAll(group).forEach(observeTarget);
+  });
+
+  var timelineScene = document.getElementById("timeline-scene");
+  if (timelineScene) {
+    new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        mutation.addedNodes.forEach(function (node, index) {
+          if (node.nodeType !== 1) return;
+          if (node.matches(".timeline-item")) observeTarget(node, index);
+          node.querySelectorAll(".timeline-item").forEach(observeTarget);
+        });
+      });
+    }).observe(timelineScene, { childList: true });
+  }
+})();
+
 // Scoreboard-Ticker gemeinsam auf der Athleten- und Partner-Seite nutzen.
 (function () {
   var track = document.getElementById("scoreboard-track");
@@ -238,38 +309,6 @@
     resizeTimer = window.setTimeout(buildLayout, 150);
   });
 })();
-/* ============================================================
-   Custom Cursor — smoother orangener Punkt
-   ============================================================ */
-(function () {
-  const dot = document.querySelector('.cursor-dot');
-  if (!dot) return; // falls das Element (noch) nicht existiert, abbrechen
-
-  let mouseX = 0, mouseY = 0;
-  let dotX = 0, dotY = 0;
-
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  function animate() {
-    dotX += (mouseX - dotX) * 0.15;
-    dotY += (mouseY - dotY) * 0.15;
-
-    dot.style.left = dotX + 'px';
-    dot.style.top = dotY + 'px';
-
-    requestAnimationFrame(animate);
-  }
-  animate();
-
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => dot.classList.add('hover'));
-    el.addEventListener('mouseleave', () => dot.classList.remove('hover'));
-  });
-})();
-
 (function () {
   var content = document.getElementById("next-match-content");
   if (!content) return;

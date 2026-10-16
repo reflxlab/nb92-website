@@ -189,8 +189,6 @@ a { color: inherit; }
 .nav-toggle[aria-expanded="true"] .nav-toggle-line:first-child { transform: translateY(3px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] .nav-toggle-line:last-child { transform: translateY(-3px) rotate(-45deg); }
 
-body:has(.nav-toggle:hover, .nav-toggle:focus-visible) .cursor-dot { opacity: 0; }
-
 #about, #stats, #next-match, #myValues, #sponsor-why, #hintergrund, #timeline, #partner, #gallery, #kontakt {
   scroll-margin-top: var(--primary-nav-height);
 }
@@ -1442,27 +1440,191 @@ body:has(.nav-toggle:hover, .nav-toggle:focus-visible) .cursor-dot { opacity: 0;
 
 
 
-/* ===================== Cursor ===================== */
-* {
-  cursor: none; /* nativen Cursor überall ausblenden */
+/* ===================== SHARED LAYOUT & SCROLL REVEALS ===================== */
+
+:root {
+  --content-width: 1280px;
+  --page-gutter: clamp(20px, 5vw, 72px);
+  --section-space: clamp(76px, 8vw, 112px);
 }
 
-.cursor-dot {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 16px;
-  height: 16px;
-  background: var(--accent);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+.primary-nav-inner {
+  width: min(100%, calc(var(--content-width) + var(--page-gutter) + var(--page-gutter)));
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
 }
 
-.cursor-dot.hover {
-  width: 26px;
-  height: 26px;
-  background: var(--accent);
+.about,
+.stats,
+.next-match,
+.myValues,
+.sponsor-why,
+.timeline,
+.partner-section,
+.contact {
+  padding-inline: var(--page-gutter);
+}
+
+.about,
+.stats,
+.next-match,
+.myValues,
+.sponsor-why,
+.timeline,
+.partner-section,
+.contact,
+.gallery {
+  padding-block: var(--section-space);
+}
+
+.hero-content {
+  padding: clamp(32px, 5vw, 72px);
+}
+
+.hero {
+  min-height: min(820px, calc(100svh - 41px));
+}
+
+.hero-photo {
+  overflow: hidden;
+}
+
+.hero-photo img {
+  transition: transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.hero-photo:hover img {
+  transform: scale(1.025);
+}
+
+.about-grid,
+.stats-grid,
+.next-match-inner,
+.myValues-wrap,
+.sponsor-why-wrap,
+.partner-wrap,
+.gallery-inner {
+  max-width: var(--content-width);
+}
+
+.stats > .section-label {
+  max-width: var(--content-width);
+  margin-inline: auto;
+}
+
+.timeline-wrap {
+  max-width: min(100%, 980px);
+}
+
+.timeline > .section-label {
+  max-width: min(100%, 980px);
+  margin-inline: auto;
+}
+
+.gallery-inner {
+  padding-inline: var(--page-gutter);
+}
+
+.info-columns {
+  width: 100%;
+  max-width: calc(var(--content-width) + var(--page-gutter) + var(--page-gutter));
+  padding: var(--section-space) var(--page-gutter);
+}
+
+.sponsor-why-wrap > .section-label,
+.sponsor-why-heading {
+  text-align: left;
+}
+
+.myValues-grid,
+.sponsor-why-grid {
+  align-items: stretch;
+}
+
+.myValues-card,
+.sponsor-card,
+.info-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.myValues-card p,
+.sponsor-card p,
+.info-card p {
+  flex: 1;
+}
+
+.myValues-card,
+.sponsor-card,
+.info-card,
+.partner-card,
+.contact-link,
+.next-match-link,
+.next-match-detail,
+.timeline-card,
+.gallery-item {
+  border-radius: 8px;
+}
+
+.legal {
+  padding: clamp(80px, 10vw, 120px) var(--page-gutter) var(--section-space);
+}
+
+body.scroll-reveal-enabled [data-scroll-reveal] {
+  opacity: 0;
+  translate: 0 100px;
+  transition:
+    opacity 400ms ease,
+    translate 400ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, translate;
+}
+
+body.scroll-reveal-enabled [data-scroll-reveal].is-revealed {
+  opacity: 1;
+  translate: 0 0;
+}
+
+@media (max-width: 860px) {
+  .hero { min-height: 0; }
+  .hero-photo { min-height: clamp(300px, 48vh, 560px); }
+  .hero-content { padding: var(--section-space) var(--page-gutter); }
+}
+
+@media (max-width: 700px) {
+  .stats,
+  .about,
+  .next-match,
+  .myValues,
+  .sponsor-why,
+  .timeline,
+  .partner-section,
+  .contact {
+    padding-block: clamp(64px, 16vw, 80px);
+  }
+
+  .info-columns {
+    padding-block: clamp(64px, 16vw, 80px);
+  }
+
+  .gallery-inner {
+    padding-inline: var(--page-gutter);
+  }
+
+  .section-label {
+    margin-bottom: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.scroll-reveal-enabled [data-scroll-reveal] {
+    opacity: 1;
+    translate: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  .hero-photo img {
+    transition: none;
+  }
 }
